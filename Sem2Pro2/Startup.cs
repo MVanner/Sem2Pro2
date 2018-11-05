@@ -26,6 +26,8 @@ namespace Sem2Pro2
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default", "{controller=Login}/{action=Index}/{id?}");
