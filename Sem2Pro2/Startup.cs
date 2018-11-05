@@ -15,6 +15,7 @@ namespace Sem2Pro2
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,9 +26,10 @@ namespace Sem2Pro2
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("Hello World!"); //f
+                routes.MapRoute("Default", "{controller=Login}/{action=Index}/{id?}");
+
             });
         }
     }
